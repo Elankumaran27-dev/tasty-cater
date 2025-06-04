@@ -1,0 +1,51 @@
+.event-image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  display: block;
+  border-radius: 10px;
+}
+
+.event-card {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  height: 100%;
+  transition: transform 0.3s ease;
+}
+
+.event-card:hover {
+  transform: translateY(-8px);
+}
+
+.event-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(9, 30, 62, 0.85);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  padding: 20px;
+}
+
+.event-card:hover .event-overlay {
+  opacity: 1;
+}
+
+.event-overlay h4 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.event-overlay p {
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}

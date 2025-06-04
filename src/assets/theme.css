@@ -1,0 +1,36 @@
+/* theme.css */
+
+/* Import Poppins font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* CSS Variables for Light Theme */
+:root {
+  --font-family: 'Poppins', sans-serif;
+  
+  --primary-color: #FF6F61;
+  --secondary-color: #4A90E2;
+  --background-color: #FFFFFF;
+  --text-color: #333333;
+  --accent-color: #F5A623;
+
+  --navbar-bg: var(--primary-color);
+  --footer-bg: #222222;
+}
+
+/* CSS Variables for Dark Theme (optional) */
+[data-theme="dark"] {
+  --background-color: #121212;
+  --text-color: #EEEEEE;
+  --navbar-bg: #1a1a1a;
+  --footer-bg: #111111;
+}
+
+/* Global Styles */
+body {
+  font-family: var(--font-family);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}

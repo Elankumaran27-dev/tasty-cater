@@ -1,0 +1,50 @@
+/* src/components/Services.css */
+.services-section {
+  background-color: #f9f9f9;
+}
+
+.service-card {
+  background: #fff;
+  transition: all 0.4s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.service-card .icon {
+  font-size: 2.5rem;
+}
+
+.service-card:hover {
+  color: white;
+}
+
+.service-card .hover-bg {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  background: var(--bs-primary);
+  z-index: 0;
+  transition: height 0.4s ease;
+  border-radius: 0.5rem;
+}
+
+.service-card:hover .hover-bg {
+  height: 100%;
+}
+
+.service-card h5,
+.service-card p,
+.service-card .icon {
+  position: relative;
+  z-index: 2;
+  transition: color 0.3s ease;
+}
+
+.service-card:hover h5,
+.service-card:hover p,
+.service-card:hover .icon {
+  color: white;
+}

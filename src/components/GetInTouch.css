@@ -1,0 +1,20 @@
+/* src/components/GetInTouch.css */
+.get-in-touch-section {
+  background-color: #f8f9fa;
+}
+
+.get-in-touch-section h2 {
+  color: #333;
+  font-weight: 700;
+}
+
+.get-in-touch-section .form-control {
+  border-radius: 0.5rem;
+  border: 1px solid #ccc;
+  padding: 10px 15px;
+  font-size: 1rem;
+}
+
+.get-in-touch-section .btn {
+  margin-top: 10px;
+}

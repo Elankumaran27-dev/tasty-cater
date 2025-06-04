@@ -1,0 +1,98 @@
+.team-section {
+  padding: 60px 20px;
+  background-color: #f0f8ff;
+  text-align: center;
+}
+
+.team-header h2 {
+  font-size: 2.8rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.team-header p {
+  color: #555;
+  font-size: 1rem;
+  margin-bottom: 40px;
+}
+
+.team-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.team-card {
+  background: #fff;
+  width: 250px;
+  border-radius: 10px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: 0.3s ease;
+  position: relative;
+}
+
+.team-card:hover {
+  transform: translateY(-10px);
+}
+
+.team-img {
+  position: relative;
+  overflow: hidden;
+  height: 300px;
+}
+
+.team-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.team-card:hover .team-img img {
+  transform: scale(1.1);
+}
+
+.overlay {
+  position: absolute;
+  bottom: -40px;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  padding: 10px;
+  transition: 0.4s ease;
+}
+
+.team-card:hover .overlay {
+  bottom: 0;
+}
+
+.overlay a {
+  color: #fff;
+  font-size: 18px;
+  transition: 0.3s ease;
+}
+
+.overlay a:hover {
+  color: #00bcd4;
+}
+
+.team-info {
+  padding: 20px 15px;
+}
+
+.team-info h3 {
+  font-size: 1.2rem;
+  margin: 0;
+  color: #222;
+}
+
+.team-info p {
+  color: #777;
+  font-size: 0.95rem;
+  margin-top: 5px;
+}
