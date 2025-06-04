@@ -1,11 +1,11 @@
 // src/components/AboutSection.jsx
 import React, { useEffect } from 'react';
-import WOW from 'wowjs';
 import './AboutSection.css';
 
 const AboutSection = () => {
   useEffect(() => {
-    new WOW.WOW().init();
+    const WOW = require('wowjs'); // Use require here
+    new WOW.WOW().init();         // Initialize WOW
   }, []);
 
   return (

@@ -1,6 +1,5 @@
 // src/components/TestimonialsSection.jsx
 import React, { useEffect } from 'react';
-import WOW from 'wowjs';
 import './Testimonials.css';
 
 const testimonials = [
@@ -62,7 +61,8 @@ const testimonials = [
 
 const TestimonialsSection = () => {
   useEffect(() => {
-    new WOW.WOW().init();
+    const WOW = require('wowjs'); // Use require here
+    new WOW.WOW().init();         // Initialize WOW
   }, []);
 
   return (

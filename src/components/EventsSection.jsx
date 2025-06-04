@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
 import './Events.css';
-import WOW from 'wowjs';
 import birthday from '../assets/Images/birthday.jpg';
 import wedding from '../assets/Images/marriage.jpg';
 import corporate from '../assets/Images/corporate.jpg';
 
 const EventsSection = () => {
   useEffect(() => {
-    new WOW.WOW().init();
+    const WOW = require('wowjs'); // Use require here
+    new WOW.WOW().init();         // Initialize WOW
   }, []);
 
   const events = [
