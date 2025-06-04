@@ -4,10 +4,12 @@ import birthday from '../assets/Images/birthday.jpg';
 import wedding from '../assets/Images/marriage.jpg';
 import corporate from '../assets/Images/corporate.jpg';
 
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 const EventsSection = () => {
   useEffect(() => {
-    const WOW = require('wowjs'); // Use require here
-    new WOW.WOW().init();         // Initialize WOW
+    AOS.init({ duration: 1000, once: true });
   }, []);
 
   const events = [
@@ -15,19 +17,19 @@ const EventsSection = () => {
       title: 'Wedding Ceremony',
       description: 'Join us for a grand wedding celebration with exquisite catering services.',
       image: wedding,
-      delay: '0.1s',
+      delay: '100',
     },
     {
       title: 'Corporate Meeting',
       description: 'Professional catering for your corporate events and meetings.',
       image: corporate,
-      delay: '0.3s',
+      delay: '300',
     },
     {
       title: 'Birthday Party',
       description: 'Celebrate birthdays with our delightful catering options.',
       image: birthday,
-      delay: '0.5s',
+      delay: '500',
     },
   ];
 
@@ -35,8 +37,9 @@ const EventsSection = () => {
     <section className="events-section py-5">
       <div className="container">
         <div
-          className="text-center mx-auto mb-5 wow fadeInUp"
-          data-wow-delay="0.1s"
+          className="text-center mx-auto mb-5"
+          data-aos="fade-up"
+          data-aos-delay="100"
           style={{ maxWidth: '600px' }}
         >
           <small className="d-inline-block fw-bold text-primary text-uppercase bg-light border border-primary rounded-pill px-4 py-1 mb-3">
@@ -47,8 +50,9 @@ const EventsSection = () => {
         <div className="row g-4">
           {events.map((event, index) => (
             <div
-              className="col-lg-4 col-md-6 wow fadeInUp"
-              data-wow-delay={event.delay}
+              className="col-lg-4 col-md-6"
+              data-aos="fade-up"
+              data-aos-delay={event.delay}
               key={index}
             >
               <div className="h-100 d-flex flex-column event-card">

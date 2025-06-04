@@ -1,21 +1,24 @@
 // src/components/AboutSection.jsx
 import React, { useEffect } from 'react';
 import './AboutSection.css';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const AboutSection = () => {
   useEffect(() => {
-    const WOW = require('wowjs'); // Use require here
-    new WOW.WOW().init();         // Initialize WOW
+    AOS.init({ duration: 1000, once: true });
   }, []);
 
   return (
     <section className="about-section py-5">
       <div className="container">
         <div className="row align-items-center g-5">
+
           {/* Left Side Image */}
           <div
-            className="col-lg-6 wow zoomIn"
-            data-wow-delay="0.1s"
+            className="col-lg-6"
+            data-aos="zoom-in"
+            data-aos-delay="100"
           >
             <img
               src="https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg"
@@ -26,8 +29,9 @@ const AboutSection = () => {
 
           {/* Right Side Content */}
           <div
-            className="col-lg-6 wow fadeInUp"
-            data-wow-delay="0.3s"
+            className="col-lg-6"
+            data-aos="fade-up"
+            data-aos-delay="300"
           >
             <small className="d-inline-block text-uppercase text-primary fw-bold bg-light border border-primary rounded-pill px-4 py-1 mb-3">
               About Us
