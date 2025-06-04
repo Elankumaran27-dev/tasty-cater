@@ -9,8 +9,8 @@ import vegMeals from '../assets/Images/vegMeals.jpg';
 import miniTiffen from '../assets/Images/mini_tiffen.jpg';
 import chickenBriyani from '../assets/Images/famous_Briyani.jpg';
 import mealsWithSambar from '../assets/Images/sambar_rice.jpg';
-import pongalVada from '../assets/Images/pongal_vada.jpg';
-import parotta from '../assets/Images/parota.jpg';
+import pongalVada from '../assets/Images/pongal_Vada.jpg';
+import parotta from '../assets/Images/Parota.jpg';
 
 const allMenu = [
   {
