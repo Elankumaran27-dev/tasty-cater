@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { NavLink, Link, useNavigate } from 'react-router-dom';
 import LoginModal from './LoginModal/LoginModal';
 import Toast from './Toast';
-// import { useAuth } from '../context/AuthContext';
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -25,7 +24,7 @@ const Navbar = () => {
     };
   }, []);
 
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const toggleMenu = () => setIsMenuOpen((prev) => !prev);
 
   const handleBookNowClick = (e) => {
     e.preventDefault();
@@ -37,6 +36,7 @@ const Navbar = () => {
       if (confirmLogin) {
         setLoginFromBooking(true);
         setShowLogin(true);
+        setIsMenuOpen(false);
       }
     }
   };
@@ -61,6 +61,7 @@ const Navbar = () => {
     setIsLoggedIn(true);
     setShowLogin(false);
     setShowToast(true);
+
     setTimeout(() => setShowToast(false), 3000);
 
     if (loginFromBooking) {
@@ -74,19 +75,23 @@ const Navbar = () => {
   };
 
   return (
-    <div className="container-fluid bg-white shadow-sm sticky-top">
+    <div className="container-fluid bg-white shadow-sm sticky-top" style={{ overflowX: 'hidden' }}>
       <div className="container">
         <nav className="navbar navbar-expand-lg navbar-light py-3">
-          <Link className="navbar-brand fw-bold text-primary fs-3" to="/" onClick={() => setIsMenuOpen(false)}>
+          <Link
+            className="navbar-brand fw-bold text-primary fs-3"
+            to="/"
+            onClick={() => setIsMenuOpen(false)}
+          >
             Tasty<span className="text-dark">Cater</span>
           </Link>
 
           <button
             className="navbar-toggler"
             type="button"
-            onClick={toggleMenu}
-            aria-expanded={isMenuOpen}
             aria-label="Toggle navigation"
+            aria-expanded={isMenuOpen}
+            onClick={toggleMenu}
           >
             <span style={{ fontSize: '1.5rem', userSelect: 'none' }}>
               {isMenuOpen ? '×' : '☰'}
@@ -96,37 +101,118 @@ const Navbar = () => {
           <div className={`collapse navbar-collapse${isMenuOpen ? ' show' : ''}`} id="navbarCollapse">
             <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <NavLink to="/" className="nav-link" onClick={() => setIsMenuOpen(false)}>Home</NavLink>
+                <NavLink
+                  to="/"
+                  className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Home
+                </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink to="/about" className="nav-link" onClick={() => setIsMenuOpen(false)}>About</NavLink>
+                <NavLink
+                  to="/about"
+                  className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  About
+                </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink to="/services" className="nav-link" onClick={() => setIsMenuOpen(false)}>Services</NavLink>
+                <NavLink
+                  to="/services"
+                  className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Services
+                </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink to="/events" className="nav-link" onClick={() => setIsMenuOpen(false)}>Events</NavLink>
+                <NavLink
+                  to="/events"
+                  className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Events
+                </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink to="/menu" className="nav-link" onClick={() => setIsMenuOpen(false)}>Menu</NavLink>
+                <NavLink
+                  to="/menu"
+                  className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Menu
+                </NavLink>
               </li>
               <li className="nav-item dropdown">
-                <span className="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <span
+                  className="nav-link dropdown-toggle"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
                   Pages
                 </span>
                 <ul className="dropdown-menu">
-                  <li><NavLink to="/booking" className="dropdown-item" onClick={() => setIsMenuOpen(false)}>Booking</NavLink></li>
-                  <li><NavLink to="/blog" className="dropdown-item" onClick={() => setIsMenuOpen(false)}>Our Blog</NavLink></li>
-                  <li><NavLink to="/team" className="dropdown-item" onClick={() => setIsMenuOpen(false)}>Our Team</NavLink></li>
-                  <li><NavLink to="/testimonial" className="dropdown-item" onClick={() => setIsMenuOpen(false)}>Testimonial</NavLink></li>
-                  <li><NavLink to="/404" className="dropdown-item" onClick={() => setIsMenuOpen(false)}>404 Page</NavLink></li>
+                  <li>
+                    <NavLink
+                      to="/booking"
+                      className="dropdown-item"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      Booking
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink
+                      to="/blog"
+                      className="dropdown-item"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      Our Blog
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink
+                      to="/team"
+                      className="dropdown-item"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      Our Team
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink
+                      to="/testimonial"
+                      className="dropdown-item"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      Testimonial
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink
+                      to="/404"
+                      className="dropdown-item"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      404 Page
+                    </NavLink>
+                  </li>
                 </ul>
               </li>
               <li className="nav-item">
-                <NavLink to="/contact" className="nav-link" onClick={() => setIsMenuOpen(false)}>Contact</NavLink>
+                <NavLink
+                  to="/contact"
+                  className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Contact
+                </NavLink>
               </li>
 
-              {/* 👇 Login/Logout inside menu */}
+              {/* Login / Logout */}
               <li className="nav-item mt-2 mt-lg-0">
                 {!isLoggedIn ? (
                   <button
@@ -150,12 +236,9 @@ const Navbar = () => {
               </li>
             </ul>
 
-            {/* Book Now stays outside */}
+            {/* Book Now button outside nav links */}
             <div className="d-flex ms-lg-3 mt-3 mt-lg-0">
-              <button
-                onClick={handleBookNowClick}
-                className="btn btn-primary rounded-pill"
-              >
+              <button onClick={handleBookNowClick} className="btn btn-primary rounded-pill">
                 Book Now
               </button>
             </div>
@@ -164,11 +247,7 @@ const Navbar = () => {
       </div>
 
       {showLogin && (
-        <LoginModal
-          show={showLogin}
-          onClose={() => setShowLogin(false)}
-          onLogin={handleLoginSuccess}
-        />
+        <LoginModal show={showLogin} onClose={() => setShowLogin(false)} onLogin={handleLoginSuccess} />
       )}
 
       {showToast && <Toast message="Login successful!" />}
